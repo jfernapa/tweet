@@ -1,0 +1,16 @@
+<form action="login" method="get">
+  <% if flash[:notice] != nil %>
+    <div><%= flash[:notice]  %></div>
+  <% end %>
+<div>
+  <label id="name" name="name">Zombie name: </label>
+  <input type="text" id="name" name="name" />
+</div>
+<div>
+  <label id="pass" name="pass">Password: </label>
+  <input type="password" id="pass" name="pass" />
+</div>
+<div>
+  <input type="submit" id="login" name="login" value="Login"/>
+</div>
+</form>

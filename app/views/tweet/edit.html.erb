@@ -1,0 +1,10 @@
+<form action="update" method="get">
+<div>
+  <label>Tweet</label>
+  <input  type="hidden" id="tweet_id" name="tweet_id" value="<%= @tweet.id %>"/>
+  <input type="text" id="status" name="status" value="<%= @tweet.status %>"/>
+</div>
+<div>
+  <input type="submit" id="tweet" name="tweet" value="Update Tweet"/>
+</div>
+</form>

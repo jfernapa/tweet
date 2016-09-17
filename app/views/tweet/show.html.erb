@@ -1,0 +1,17 @@
+<h1>Tweet#index</h1>
+<% if flash[:notice] %>
+  <div><%= flash[:notice] %></div>
+<% end %>
+<table>
+  <th>Tweet</th>
+  <th>Zombie</th>
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.status %></td>
+    <td><%= tweet.zombie.name %></td>
+    <td><%= link_to "Edit", controller: "tweet", action: "edit", id: tweet.id %></td>
+    <td><%= link_to "Delete", controller: "tweet", action: "delete", id: tweet.id %></td>
+  </tr>
+<% end %>
+</table>
+<div><%= link_to "New tweet", controller: "tweet", action: "new" %></div>
