@@ -5,6 +5,7 @@ class TweetController < ApplicationController
     zombie = Zombie.find_by name: params[:name]
     if zombie.eql?nil
       zombie = Zombie.create(name: params[:name], pass: params[:pass])
+      redirect_to action: "show"
     else
       if zombie.pass == params[:pass]
         session[:zombie_id] = zombie.id 
