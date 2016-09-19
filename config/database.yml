@@ -1,10 +1,8 @@
 development:
   adapter: postgresql
-  database: tweet_development
-  pool: 5
-  username: javi 
-  password:
-  timeout: 5000
+  host: localhost
+  database: app-dev
+  username: user 
 
 test:
   adapter: postgresql
