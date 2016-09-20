@@ -1,10 +1,11 @@
 class TweetController < ApplicationController
 
   def login
-    session[:zombie_id] == nil
+    session[:zombie_id] = nil
     zombie = Zombie.find_by name: params[:name]
     if zombie.eql?nil
       zombie = Zombie.create(name: params[:name], pass: params[:pass])
+      session[:zombie_id] = zombie.id
       redirect_to action: "show"
     else
       if zombie.pass == params[:pass]
@@ -43,9 +44,14 @@ class TweetController < ApplicationController
   end
 
   def delete
-    tweet = Tweet.find(params[:id])
-    tweet.destroy
-    redirect_to action: "show"
+    @tweet = Tweet.find(params[:id])
+    if session[:zombie] != @tweet.zombie.id
+      flash[:notice] = "Sorry, this tweet is not yours!"
+      redirect_to action: "show"
+    else
+      tweet = Tweet.find(params[:id])
+      tweet.destroy
+    end
   end
 
   def index 
