@@ -45,18 +45,13 @@ class TweetController < ApplicationController
 
   def delete
     @tweet = Tweet.find(params[:id])
-    if session[:zombie] != @tweet.zombie.id
+    if session[:zombie_id] != @tweet.zombie.id
       flash[:notice] = "Sorry, this tweet is not yours!"
       redirect_to action: "show"
     else
-      tweet = Tweet.find(params[:id])
-      tweet.destroy
+      @tweet.destroy
+      redirect_to action: "show"
     end
   end
 
-  def index 
-  end
-
-  def new
-  end
 end
