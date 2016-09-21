@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+
+  get 'tweet/index'
+  root 'tweet#index'
+
   get 'tweet/login'
   root 'tweet#login'
 
   get 'tweet/show'
   root 'tweet#show'
+
+  get 'tweet/new'
+  root 'tweet#new'
 
   get 'tweet/create'
   root 'tweet#create'
@@ -17,9 +24,4 @@ Rails.application.routes.draw do
   get 'tweet/delete'
   root 'tweet#delete'
 
-  get 'tweet/index'
-  root 'tweet#index'
-
-  get 'tweet/new'
-  root 'tweet#new'
 end
