@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
 
-  get 'tweet/index'
+  get '/index'
   root 'tweet#index'
 
-  get 'tweet/show'
+  get '/show'
 
-  get 'tweet/new'
+  get '/new'
 
-  get 'tweet/edit'
+  get '/edit'
 
-  get 'tweet/login'
+  get '/login'
 
-  get 'tweet/create'
+  get '/create'
 
-  get 'tweet/update'
+  get '/update'
 
-  get 'tweet/delete'
+  get '/delete'
 
 end
