@@ -2,7 +2,8 @@ class TweetController < ApplicationController
 
   def login
     session[:zombie_id] = nil
-    zombie = Zombie.find_by name: params[:name]
+    #zombie = Zombie.find_by name: params[:name]
+    zombie = Zombie.where(["name = :n", {n: params[:name]})
     if zombie.eql?nil
       zombie = Zombie.create(name: params[:name], pass: params[:pass])
       session[:zombie_id] = zombie.id
